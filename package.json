@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/cyclic-software/starter-express-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4",
+    "stripe": "^11.7.0"
   }
 }
