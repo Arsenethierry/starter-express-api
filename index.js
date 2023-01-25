@@ -2,6 +2,9 @@ const express = require('express')
 const products = require('./products');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const register = require('./routes/register');
+const login = require('./routes/login');
+const stripe = require("./routes/stripe");
 
 const app = express()
 require('dotenv').config()
@@ -12,6 +15,10 @@ app.all('/', (req, res) => {
     console.log("Just got a request!")
     res.send('Yo!')
 });
+
+app.use("/api/register", register);
+app.use("/api/login", login);
+app.use("/stripe", stripe);
 
 app.get('/products', (req, res) => {
     res.send(products);
