@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 
+
 const genAuthToken = (user) => {
-    const secretKey = process.env.JWT_SECRET_KEY;
+    const secretKey =  `jwtkey111`
 
     const token = jwt.sign({
         _id: user._id,

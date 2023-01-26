@@ -1,8 +1,10 @@
 const express = require('express')
 const Stripe = require('stripe')
-require('dotenv').config()
+// require('dotenv').config()
+const STRIPE_KEY = `sk_test_51IGIouCEATszhHRKDsXil3J42HXKzMibIB07vqGae1vN5tJzKUCwRpla6MIjgqfjDHI4uMuidW64x0iQJnJMFbYt00wMLJxIvK`
+const CLIENT_URL = `http://localhost:3000`
 
-const stripe = Stripe(process.env.STRIPE_KEY)
+const stripe = Stripe(STRIPE_KEY)
 const router = express.Router()
 router.post('/create-checkout-session', async (req, res) => {
 
@@ -45,8 +47,8 @@ router.post('/create-checkout-session', async (req, res) => {
             enabled: true,
         },
         mode: 'payment',
-        success_url: process.env.CLIENT_URL + '/checkout-success',
-        cancel_url: process.env.CLIENT_URL + '/cart',
+        success_url: CLIENT_URL + '/checkout-success',
+        cancel_url: CLIENT_URL + '/cart',
     });
 
     res.send({ url: session.url });

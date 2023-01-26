@@ -7,7 +7,7 @@ const login = require('./routes/login');
 const stripe = require("./routes/stripe");
 
 const app = express()
-require('dotenv').config()
+// require('dotenv').config()
 app.use(cors());
 app.use(express.json());
 
@@ -23,11 +23,14 @@ app.use("/stripe", stripe);
 app.get('/products', (req, res) => {
     res.send(products);
 })
-const dburl = process.env.DB_URL
+// const dburl = process.env.DB_URL
+
+const CONNECTION_DB_URL = "mongodb+srv://arsene:arsene123@2023projects.8getgk5.mongodb.net/myshop?retryWrites=true&w=majority"
+
 
 app.listen(process.env.PORT || 3000)
 
-mongoose.connect(dburl, {
+mongoose.connect(CONNECTION_DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => console.log("connected to mongoDb"))
